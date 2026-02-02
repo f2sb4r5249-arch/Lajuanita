@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Juanita – Rabat | Cuisine & Ambiance</title>
+  <meta name="description" content="La Juanita à Rabat : une adresse chaleureuse, une cuisine généreuse, une ambiance élégante. Réservez votre table." />
+
+  <!-- Premium fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&family=Allura&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --text:#f2f3f5;
+      --muted:#c2c8d3;
+      --muted2:rgba(255,255,255,.68);
+      --line:rgba(255,255,255,.10);
+      --card:rgba(17,19,26,.72);
+      --radius:18px;
+      --accent:#f5b942;
+      --accent2:#ff5c7a;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      overflow-x:hidden;
+
+      background: linear-gradient(180deg, rgba(0,0,0,.68), rgba(0,0,0,.88)),
+                  url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2400&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px, 92vw); margin:0 auto;}
+
+    /* ---------- NAV ---------- */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(10,11,14,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo{
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      box-shadow: 0 4px 14px rgba(0,0,0,.35);
+    }
+    .brand-name{
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .links{
+      display:flex;
+      gap:18px;
+      color:rgba(255,255,255,.72);
+      font-weight:500;
+      font-size:14px;
+      justify-content:center;
+      flex: 1;
+    }
+    .links a{opacity:.9}
+    .links a:hover{opacity:1;color:white}
+
+    .right-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      min-width: 220px;
+    }
+
+    .btn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      padding:10px 14px;
+      border-radius:14px;
+      font-weight:600;
+      cursor:pointer;
+      color:white;
+      transition: transform .12s ease, background .12s ease, opacity .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn.primary{
+      background: linear-gradient(135deg, #b8892a, #d6a84a) !important;
+      color: #ffffff !important;
+      border: none !important;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(184, 137, 42, 0.35);
+    }
+    .btn.primary:hover{opacity:.96}
+
+    @media(max-width:900px){
+      .links{display:none}
+      .right-actions{min-width:auto}
+    }
+
+    /* ---------- TYPO (luxe) ---------- */
+    h1,h2{
+      font-family:'Playfair Display', serif;
+      text-transform:uppercase;
+      letter-spacing:0.22em;
+      font-weight:400;
+      margin:0;
+    }
+    h3,h4{
+      font-family:'Playfair Display', serif;
+      letter-spacing:0.08em;
+      font-weight:500;
+      margin:0 0 10px;
+    }
+    p{margin:0; line-height:1.85; color:var(--muted2); font-weight:300}
+
+    .elegant-script{
+      font-family:'Allura', cursive;
+      font-size:44px;
+      letter-spacing:.05em;
+      color: rgba(245,185,66,.92);
+      margin-top:12px;
+      text-transform:none;
+    }
+
+    /* ---------- HERO ---------- */
+    header{padding:66px 0 36px;}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-left-topline{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom:14px;
+      color:rgba(255,255,255,.72);
+      font-size:13px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight:500;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(245,185,66,.35);
+      color:rgba(245,185,66,.95);
+      background: rgba(245,185,66,.08);
+      letter-spacing:.16em;
+      font-weight:600;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+
+    .hero-title{
+      font-size: clamp(42px, 5vw, 64px);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .mini{
+      display:flex;
+      gap:26px;
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      color:rgba(255,255,255,.70);
+      font-size:13px;
+    }
+    .mini strong{
+      display:block;
+      margin-top:6px;
+      color: rgba(255,255,255,.9);
+      font-weight:500;
+      letter-spacing:.02em;
+    }
+
+    /* Right column cards */
+    .stack{display:flex; flex-direction:column; gap:14px;}
+    .stack .card{box-shadow:none; background: rgba(15,16,22,.62);}
+
+    /* ---------- SECTION TITLES ---------- */
+    .section{
+      padding: 22px 0 30px;
+    }
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:14px;
+      margin: 10px 0 16px;
+    }
+    .section-title h2{
+      font-size: 24px;
+    }
+    .section-title .note{
+      color: rgba(255,255,255,.70);
+      font-weight:400;
+      letter-spacing:.02em;
+    }
+
+    /* ---------- FEATURES (3 cards) ---------- */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      margin-top: 18px;
+    }
+    @media(max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+    .feature-title{
+      font-family:'Playfair Display', serif;
+      letter-spacing:.08em;
+      font-weight:500;
+      color: rgba(255,255,255,.92);
+      margin-bottom:10px;
+    }
+    .feature-text{
+      color: rgba(255,255,255,.70);
+      font-weight:300;
+      line-height:1.75;
+    }
+
+    /* ---------- INFOS PRATIQUES ---------- */
+    .info-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 20px;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid var(--line);
+      background: rgba(10,11,14,.55);
+      box-shadow: var(--shadow);
+    }
+    @media(max-width:900px){
+      .info-wrap{grid-template-columns:1fr}
+    }
+    .info-col{
+      padding: 34px 30px;
+      position:relative;
+    }
+    .info-col + .info-col{
+      border-left:1px solid rgba(255,255,255,.08);
+    }
+    @media(max-width:900px){
+      .info-col + .info-col{border-left:none; border-top:1px solid rgba(255,255,255,.08);}
+    }
+
+    .info-head{
+      text-align:center;
+      margin-bottom: 22px;
+    }
+    .info-head h3{
+      font-size: 34px;
+      letter-spacing:.06em;
+      text-transform:none;
+      margin-bottom: 10px;
+    }
+    .underline{
+      width: 70px;
+      height: 2px;
+      margin: 0 auto;
+      background: rgba(255,92,122,.75);
+      border-radius: 99px;
+    }
+
+    .info-item{
+      text-align:center;
+      padding: 18px 0;
+    }
+    .info-item .k{
+      font-weight:600;
+      color: rgba(255,255,255,.92);
+      margin-bottom: 8px;
+      letter-spacing:.02em;
+    }
+    .info-item .v{
+      color: rgba(255,255,255,.62);
+      font-weight:300;
+      line-height:1.7;
+    }
+
+    /* --- Égérie cliquable MAIS style normal --- */
+    #openEgerie{
+      color: inherit;
+      font: inherit;
+      font-weight: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #openEgerie:hover{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(245,185,66,.55);
+    }
+
+    .hours{
+      margin-top: 10px;
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding: 18px 0;
+      border-top: 1px dashed rgba(255,255,255,.14);
+      color: rgba(255,255,255,.78);
+      font-weight:400;
+    }
+    .row:first-child{border-top:none}
+    .row .day{font-weight:500; color: rgba(255,255,255,.92)}
+    .row .time{color: rgba(255,255,255,.64); font-weight:400}
+    .row .dot{
+      display:inline-block;
+      width:6px;height:6px;border-radius:50%;
+      background: rgba(255,92,122,.85);
+      margin: 0 10px;
+      transform: translateY(-1px);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      border-top:1px solid var(--line);
+      padding:22px 0;
+      color:rgba(255,255,255,.62);
+      font-size:13px;
+      background: rgba(0,0,0,.45);
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    /* ---------- MODAL RESA (overlay) ---------- */
+    .overlay{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.65);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:100;
+      padding: 18px;
+    }
+    .overlay.open{display:flex}
+
+    .modal{
+      background:#0c0d12;
+      border-radius:20px;
+      width:min(640px, 94vw);
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    }
+    .modal-header{
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+    .modal-header strong{
+      font-weight:600;
+      letter-spacing:.02em;
+    }
+
+    .modal-body{padding:20px;}
+    .form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media(max-width:650px){
+      .form{grid-template-columns:1fr}
+    }
+
+    .form input, .form select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:#11121a;
+      color:white;
+      outline:none;
+    }
+    .form input::placeholder{color: rgba(255,255,255,.45)}
+
+    .valentine{
+      display:none;
+      text-align:center;
+      padding-top: 6px;
+    }
+    .valentine.open{display:block}
+
+    .valentine h2{
+      font-size: 22px;
+      letter-spacing:.10em;
+      margin-bottom: 12px;
+    }
+    .valentine p{
+      color: rgba(255,255,255,.70);
+      margin-bottom: 16px;
+    }
+
+    /* ✅ AJOUT : zone des 2 boutons Oui / Non */
+    .valentine-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top: 8px;
+      position: relative;
+    }
+
+    .valentine-photo{
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90vw;          /* presque plein écran */
+      height: auto;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 24px;
+      z-index: 9999;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    }
+
+    .valentine-photo.show-photo{
+      display: block;
+      animation: photoAppear 0.6s ease;
+    }
+
+    @keyframes photoAppear{
+      from{
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.92);
+      }
+      to{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+   
+
+    /* ✅ AJOUT : bouton Non qui peut bouger */
+    #noBtn{
+      position: relative;
+      transition: transform 0.18s ease;
+    }
+
+
+    
+
+    /* ---------- MODAL ÉGÉRIE (ton snippet) ---------- */
+    #egerieModal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.65);
+      z-index: 120;
+      padding: 18px;
+    }
+    #egerieModal.show{ display: flex; }
+
+    #egerieModal .modal-content{
+      background:#0c0d12;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px;
+      width:min(520px, 94vw);
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+      padding: 18px;
+      text-align:center;
+    }
+    #egerieModal .close{
+      float: right;
+      margin-left: auto;
+    }
+    .egerie-photo{
+      display:block;
+      width: 100%;
+      max-width: 360px;
+      margin: 18px auto 10px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 40px rgba(0,0,0,.45);
+      object-fit: cover;
+    }
+    .egerie-caption{
+      margin-top: 10px;
+      color: rgba(255,255,255,.78);
+      font-weight: 400;
+    }
+
+    
+
+    /* Overlay Aperçu */
+    .apercu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .apercu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Image Aperçu */
+    .apercu-img {
+      max-width: 90vw;     /* largeur max = 90% écran */
+      max-height: 85vh;    /* hauteur max = 85% écran */
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* Bouton fermer */
+    .apercu-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="./logo.png" alt="La Juanita logo" class="logo">
+        <span class="brand-name">La Juanita</span>
+      </div>
+
+      <div class="links">
+        <a href="menu.html">Menu</a>
+        <a href="#ambiance">Aperçu</a>
+        <a href="#infos">Infos</a>
+      </div>
+
+      <div class="right-actions">
+        <a class="btn" href="menu.html">Voir le menu</a>
+        <button class="btn primary" id="openModal">Réserver</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="container">
+    <div class="hero">
+      <div class="card">
+        <div class="hero-left-topline">
+          <span class="pill">Rabat</span>
+          <span>Cuisine & Ambiance</span>
+        </div>
+
+        <h1 class="hero-title">La Juanita</h1>
+        <div class="elegant-script">From Casablanca to Marrakech</div>
+
+        <p style="margin-top:14px;">
+          Une cuisine généreuse, une atmosphère élégante, et le genre d’endroit où on a envie de prendre son temps.
+          Idéal pour un dîner à deux.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn primary" id="openModal2">Réserver une table</button>
+          <a href="tel:+212621342782" class="btn">Appeler</a>
+          <button class="btn" id="mapsBtn">Itinéraire</button>
+        </div>
+
+        <div class="mini">
+          <div>
+            Ambiance
+            <strong>Chaleureuse & intimiste</strong>
+          </div>
+          <div>
+            Spécialités
+            <strong>Plats à partager</strong>
+          </div>
+          <div>
+            Service
+            <strong>Midi & soir</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="card" id="menu">
+          <h3>Extraits du menu</h3>
+          <p>Entrées à partager • Plats signatures • Desserts maison</p>
+          <p style="margin-top:8px;">Cocktails & vins sélectionnés</p>
+        </div>
+
+        <div class="card" id="ambiance">
+          <h3>Idéal pour</h3>
+          <p>Dîners à deux, anniversaires, dates, moments spéciaux.</p>
+        </div>
+
+        <div class="card">
+          <h3>Conseil</h3>
+          <p>Allez-y avec votre Meknesi.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="section">
+      <div class="section-title">
+        <h2>Ce qui fait La Juanita</h2>
+        <div class="note">Une expérience simple, mais mémorable.</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="feature-title">Accueil & service</div>
+          <div class="feature-text">Un rythme tranquille, un service attentif, et une vraie sensation de confort.</div>
+        </div>
+        <div class="card">
+          <div class="feature-title">Ambiance</div>
+          <div class="feature-text">Lumières douces, musique discrète, et tables pensées pour discuter.</div>
+        </div>
+        <div class="card">
+          <div class="feature-title">Desserts</div>
+          <div class="feature-text">Le petit final qui fait la différence — parfait à partager.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infos pratiques -->
+    <div class="section" id="infos">
+      <div class="info-wrap">
+        <div class="info-col">
+          <div class="info-head">
+            <h3>Infos pratiques</h3>
+            <div class="underline"></div>
+          </div>
+
+          <div class="info-item">
+            <div class="k">Cuisine</div>
+            <div class="v">Tapas élaborées, Mexicaine, Cuisine Traditionnelle</div>
+          </div>
+
+          <div class="info-item">
+            <div class="k">Date d'ouverture</div>
+            <div class="v">13 Novembre 2025</div>
+          </div>
+
+          <div class="info-item">
+            <div class="k">Égérie</div>
+            <div class="v">
+              <span id="openEgerie">Salma CHNAYTI</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="k">Moyens de paiement</div>
+            <div class="v">Kiss of life</div>
+          </div>
+        </div>
+
+        <div class="info-col">
+          <div class="info-head">
+            <h3>Horaires</h3>
+            <div class="underline"></div>
+          </div>
+
+          <div class="hours">
+            <div class="row">
+              <div class="day">Lundi</div>
+              <div class="time">19h00 - 22h30</div>
+            </div>
+            <div class="row">
+              <div class="day">Mar - Jeu</div>
+              <div class="time">19h00 - 23h30</div>
+            </div>
+            <div class="row">
+              <div class="day">Vendredi</div>
+              <div class="time">12h30 - 15h00 <span class="dot"></span> 19h00 - 23h30</div>
+            </div>
+            <div class="row">
+              <div class="day">Samedi</div>
+              <div class="time">12h30 - 15h30 <span class="dot"></span> 19h00 - 23h30</div>
+            </div>
+            <div class="row">
+              <div class="day">Dimanche</div>
+              <div class="time">12h30 - 15h30 <span class="dot"></span> 19h00 - 22h30</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 La Juanita — Rabat</div>
+      <div>Site d’information • Réservation selon disponibilité</div>
+    </div>
+  </footer>
+
+  <!-- MODAL RÉSERVATION -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Réservation">
+      <div class="modal-header">
+        <strong>Réserver une table</strong>
+        <button class="btn" id="closeModal" aria-label="Fermer">Fermer</button>
+      </div>
+
+      <div class="modal-body" id="booking">
+        <div class="form">
+          <input placeholder="Nom" />
+          <input placeholder="Téléphone" />
+          <input type="date" />
+          <select>
+            <option>19:30</option>
+            <option>20:00</option>
+            <option>20:30</option>
+            <option>21:00</option>
+          </select>
+        </div>
+
+        <div style="margin-top:14px;">
+          <button class="btn primary" id="confirm">Confirmer</button>
+        </div>
+      </div>
+
+      <!-- ✅ MODIF : ajout du bouton NON + conteneur -->
+      <div class="modal-body valentine" id="valentine">
+        <h2>Dernière Étape</h2>
+        <p>Salma, une joyeuse Saint-Valentin avec moi ?</p>
+
+        <div class="valentine-actions">
+          <button class="btn primary" id="yesBtn" type="button">Oui</button>
+          <button class="btn" id="noBtn" type="button">Non</button>
+        </div>
+
+        <img
+          src="./mariage.png"
+          id="valentinePhoto"
+          class="valentine-photo"
+        />
+     </div>
+    </div>
+  </div>
+
+  <!-- MODAL ÉGÉRIE (TON SNIPPET) -->
+  <div class="modal" id="egerieModal">
+    <div class="modal-content">
+      <button class="btn close" id="closeEgerie">Fermer</button>
+      <img src="./salma.jpg" class="egerie-photo" alt="Salma CHNAYTI" />
+      <p class="egerie-caption">Notre spécialité 🍷</p>
+    </div>
+  </div>
+
+  <div class="apercu-overlay" id="apercuOverlay">
+    <button class="apercu-close" id="apercuClose" type="button">Fermer</button>
+    <img src="./nekfeu.png" alt="Aperçu" class="apercu-img" />
+  </div>
+
+
+  <script>
+    // ------- MODAL RÉSERVATION -------
+    const overlay = document.getElementById("overlay");
+    const booking = document.getElementById("booking");
+    const valentine = document.getElementById("valentine");
+
+    const openModal = () => {
+      overlay.classList.add("open");
+      overlay.setAttribute("aria-hidden", "false");
+      booking.style.display = "block";
+      valentine.classList.remove("open");
+    };
+
+    document.getElementById("openModal").onclick = openModal;
+    document.getElementById("openModal2").onclick = openModal;
+
+    document.getElementById("closeModal").onclick = () => {
+      overlay.classList.remove("open");
+      overlay.setAttribute("aria-hidden", "true");
+    };
+
+    document.getElementById("confirm").onclick = () => {
+      booking.style.display = "none";
+      valentine.classList.add("open");
+    };
+
+    overlay.addEventListener("click", (e) => {
+      if(e.target === overlay){
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    // ------- BOUTON ITINÉRAIRE -------
+    document.getElementById("mapsBtn").onclick = () => {
+      window.open("https://www.google.com/maps/search/?api=1&query=La+Juanita+Rabat", "_blank");
+    };
+
+    // ------- MODAL ÉGÉRIE -------
+    const openEgerie = document.getElementById("openEgerie");
+    const egerieModal = document.getElementById("egerieModal");
+    const closeEgerie = document.getElementById("closeEgerie");
+
+    if (openEgerie) {
+      openEgerie.addEventListener("click", () => {
+        egerieModal.classList.add("show");
+      });
+    }
+
+    if (closeEgerie) {
+      closeEgerie.addEventListener("click", () => {
+        egerieModal.classList.remove("show");
+      });
+    }
+
+    // fermer si on clique sur le fond (en dehors du contenu)
+    egerieModal.addEventListener("click", (e) => {
+      if (e.target === egerieModal) {
+        egerieModal.classList.remove("show");
+      }
+    });
+
+    
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const valentinePhoto = document.getElementById("valentinePhoto");
+
+    // OUI → afficher la photo
+    yesBtn.addEventListener("click", () => {
+      valentinePhoto.style.display = "block";
+    });
+
+    // NON → fuit doucement mais reste visible
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * 120 - 60;
+      const y = Math.random() * 60 - 30;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // clic en dehors → fermer le modal
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    const apercuLink = document.querySelector('a[href="#ambiance"]');
+    const apercuOverlay = document.getElementById("apercuOverlay");
+
+    if (apercuLink) {
+      apercuLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        apercuOverlay.classList.add("show");
+      });
+    }
+
+    apercuOverlay.addEventListener("click", () => {
+      apercuOverlay.classList.remove("show");
+    });
+
+  </script>
+
+ 
+
+</body>
+</html>
